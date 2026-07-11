@@ -1,0 +1,360 @@
+---
+title: "HTML 文章测试 - 完全用 HTML 写的 Hugo 文章"
+date: 2024-01-15
+author: "测试作者"
+description: "这是一个完全用 HTML 写的 Hugo 文章，展示 HTML 在 Hugo 中的强大功能"
+tags: ["HTML", "Hugo", "测试", "Web开发"]
+categories: ["技术测试"]
+draft: false
+featured: true
+toc: true
+---
+
+<!-- 文章元信息展示 -->
+<div class="article-meta" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 2rem; border-radius: 12px; margin-bottom: 2rem;">
+    <div style="display: flex; align-items: center; gap: 1.5rem;">
+        <div style="flex-shrink: 0;">
+            <div style="width: 80px; height: 80px; background: rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem;">
+                📝
+            </div>
+        </div>
+        <div style="flex-grow: 1;">
+            <h1 style="margin: 0 0 0.5rem 0; color: white;">{{ .Title }}</h1>
+            <div style="display: flex; flex-wrap: wrap; gap: 1rem; font-size: 0.9em; opacity: 0.9;">
+                <span>📅 {{ .Date.Format "2006年1月2日" }}</span>
+                <span>👤 {{ .Params.author }}</span>
+                <span>🏷️ 
+                    {{ range .Params.tags }}
+                    <span class="tag" style="background: rgba(255,255,255,0.2); padding: 2px 8px; border-radius: 12px; margin: 0 4px;">{{ . }}</span>
+                    {{ end }}
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 文章内容开始 -->
+<article class="html-content">
+
+<!-- 内容摘要 -->
+<div class="content-summary" style="background: #f8f9fa; border-left: 4px solid #667eea; padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem;">
+    <h3 style="margin-top: 0; color: #667eea;">📋 文章摘要</h3>
+    <p>本文展示如何在 Hugo 中使用 HTML 创建丰富的文章内容，包括：</p>
+    <ul style="columns: 2; column-gap: 2rem;">
+        <li>复杂的卡片布局</li>
+        <li>响应式图片和视频</li>
+        <li>交互式元素</li>
+        <li>高级表格</li>
+        <li>代码展示</li>
+        <li>图表和统计</li>
+    </ul>
+</div>
+
+<!-- 响应式网格布局示例 -->
+<section class="feature-grid" style="margin: 3rem 0;">
+    <h2>🎨 响应式卡片网格</h2>
+    <p>完全用 HTML 和 CSS 实现的响应式布局</p>
+    
+    <div class="grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
+        
+        <div class="card" style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: transform 0.3s; border: 1px solid #e0e0e0;">
+            <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); height: 120px; position: relative;">
+                <div style="position: absolute; bottom: -20px; left: 20px; width: 40px; height: 40px; background: white; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">
+                    🔧
+                </div>
+            </div>
+            <div style="padding: 2rem 1.5rem 1.5rem;">
+                <h3 style="margin: 0 0 1rem 0;">灵活布局</h3>
+                <p style="color: #666; line-height: 1.6;">使用 CSS Grid 和 Flexbox 创建任意复杂的布局，不再受 Markdown 的限制。</p>
+            </div>
+        </div>
+        
+        <div class="card" style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: transform 0.3s; border: 1px solid #e0e0e0;">
+            <div style="background: linear-gradient(135deg, #4CAF50 0%, #8BC34A 100%); height: 120px; position: relative;">
+                <div style="position: absolute; bottom: -20px; left: 20px; width: 40px; height: 40px; background: white; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">
+                    🎯
+                </div>
+            </div>
+            <div style="padding: 2rem 1.5rem 1.5rem;">
+                <h3 style="margin: 0 0 1rem 0;">交互元素</h3>
+                <p style="color: #666; line-height: 1.6;">添加按钮、表单、折叠面板等交互元素，提升用户体验。</p>
+                <button onclick="showAlert()" style="background: #4CAF50; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; margin-top: 10px;">点击测试</button>
+            </div>
+        </div>
+        
+        <div class="card" style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: transform 0.3s; border: 1px solid #e0e0e0;">
+            <div style="background: linear-gradient(135deg, #FF9800 0%, #FFC107 100%); height: 120px; position: relative;">
+                <div style="position: absolute; bottom: -20px; left: 20px; width: 40px; height: 40px; background: white; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">
+                    📊
+                </div>
+            </div>
+            <div style="padding: 2rem 1.5rem 1.5rem;">
+                <h3 style="margin: 0 0 1rem 0;">数据可视化</h3>
+                <p style="color: #666; line-height: 1.6;">嵌入图表、进度条、统计图等数据展示元素。</p>
+            </div>
+        </div>
+        
+    </div>
+</section>
+
+<!-- 复杂表格示例 -->
+<section class="table-demo" style="margin: 3rem 0; overflow: auto;">
+    <h2>📊 高级表格示例</h2>
+    <p>支持合并单元格、固定表头等高级功能</p>
+    
+    <table style="width: 100%; border-collapse: collapse; margin-top: 1rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+        <thead>
+            <tr style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                <th style="padding: 1rem; text-align: left;">项目</th>
+                <th style="padding: 1rem; text-align: center;" colspan="2">第一季度</th>
+                <th style="padding: 1rem; text-align: center;" colspan="2">第二季度</th>
+                <th style="padding: 1rem; text-align: center;">总计</th>
+            </tr>
+            <tr style="background: #f5f5f5;">
+                <th style="padding: 0.75rem;">子项目</th>
+                <th style="padding: 0.75rem; text-align: center;">计划</th>
+                <th style="padding: 0.75rem; text-align: center;">实际</th>
+                <th style="padding: 0.75rem; text-align: center;">计划</th>
+                <th style="padding: 0.75rem; text-align: center;">实际</th>
+                <th style="padding: 0.75rem; text-align: center;">完成率</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="padding: 0.75rem; font-weight: bold; background: #f9f9f9;" rowspan="2">网站开发</td>
+                <td style="padding: 0.75rem; text-align: center;">100%</td>
+                <td style="padding: 0.75rem; text-align: center; color: #4CAF50;">✅ 120%</td>
+                <td style="padding: 0.75rem; text-align: center;">80%</td>
+                <td style="padding: 0.75rem; text-align: center;">75%</td>
+                <td style="padding: 0.75rem; text-align: center;">
+                    <div style="background: #e0e0e0; border-radius: 4px; height: 8px; overflow: hidden;">
+                        <div style="background: #4CAF50; width: 85%; height: 100%;"></div>
+                    </div>
+                    <span style="font-size: 0.9em;">85%</span>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 0.75rem; text-align: center;">60%</td>
+                <td style="padding: 0.75rem; text-align: center; color: #FF9800;">⚠️ 55%</td>
+                <td style="padding: 0.75rem; text-align: center;">70%</td>
+                <td style="padding: 0.75rem; text-align: center;">65%</td>
+                <td style="padding: 0.75rem; text-align: center;">
+                    <div style="background: #e0e0e0; border-radius: 4px; height: 8px; overflow: hidden;">
+                        <div style="background: #FF9800; width: 60%; height: 100%;"></div>
+                    </div>
+                    <span style="font-size: 0.9em;">60%</span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+<!-- 交互式元素 -->
+<section class="interactive" style="margin: 3rem 0;">
+    <h2>🎮 交互式组件</h2>
+    
+    <details style="background: #f8f9fa; border: 1px solid #ddd; border-radius: 8px; padding: 1rem; margin: 1rem 0;">
+        <summary style="font-weight: bold; cursor: pointer; padding: 0.5rem;">📁 点击展开详细说明</summary>
+        <div style="padding: 1rem; background: white; border-radius: 4px; margin-top: 1rem;">
+            <p>这是详细内容区域。可以放置任意 HTML 内容：</p>
+            <ul>
+                <li>列表项 1</li>
+                <li>列表项 2</li>
+                <li>列表项 3</li>
+            </ul>
+        </div>
+    </details>
+    
+    <div class="tab-container" style="margin: 2rem 0;">
+        <div class="tab-buttons" style="display: flex; border-bottom: 2px solid #e0e0e0;">
+            <button onclick="switchTab(0)" class="tab-btn active" style="padding: 1rem 2rem; background: none; border: none; cursor: pointer; border-bottom: 3px solid #667eea; color: #667eea;">HTML 代码</button>
+            <button onclick="switchTab(1)" class="tab-btn" style="padding: 1rem 2rem; background: none; border: none; cursor: pointer;">CSS 样式</button>
+            <button onclick="switchTab(2)" class="tab-btn" style="padding: 1rem 2rem; background: none; border: none; cursor: pointer;">JavaScript</button>
+        </div>
+        <div class="tab-content active" style="padding: 1.5rem; background: #f8f9fa; border-radius: 0 8px 8px 8px;">
+            <pre><code style="display: block; padding: 1rem; background: #2d2d2d; color: #fff; border-radius: 4px; overflow-x: auto;">
+&lt;div class="card"&gt;
+    &lt;h3&gt;标题&lt;/h3&gt;
+    &lt;p&gt;内容&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+        <div class="tab-content" style="display: none; padding: 1.5rem; background: #f8f9fa; border-radius: 0 8px 8px 8px;">
+            <pre><code style="display: block; padding: 1rem; background: #2d2d2d; color: #fff; border-radius: 4px; overflow-x: auto;">
+.card {
+    background: white;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}</code></pre>
+        </div>
+        <div class="tab-content" style="display: none; padding: 1.5rem; background: #f8f9fa; border-radius: 0 8px 8px 8px;">
+            <pre><code style="display: block; padding: 1rem; background: #2d2d2d; color: #fff; border-radius: 4px; overflow-x: auto;">
+document.querySelector('.card').addEventListener('click', function() {
+    alert('卡片被点击！');
+});</code></pre>
+        </div>
+    </div>
+</section>
+
+<!-- 视频和图表 -->
+<section class="multimedia" style="margin: 3rem 0;">
+    <h2>🎥 多媒体嵌入</h2>
+    
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1.5rem;">
+        <div>
+            <h3>视频嵌入</h3>
+            <div style="background: #000; border-radius: 8px; overflow: hidden; position: relative; padding-top: 56.25%;">
+                <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" 
+                        src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                        title="示例视频" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+        
+        <div>
+            <h3>SVG 图表</h3>
+            <div style="background: white; padding: 1.5rem; border-radius: 8px; border: 1px solid #e0e0e0;">
+                <svg width="100%" height="200" viewBox="0 0 400 200">
+                    <!-- 背景网格 -->
+                    <g stroke="#f0f0f0" stroke-width="1" stroke-dasharray="2,2">
+                        <line x1="0" y1="50" x2="400" y2="50"/>
+                        <line x1="0" y1="100" x2="400" y2="100"/>
+                        <line x1="0" y1="150" x2="400" y2="150"/>
+                    </g>
+                    
+                    <!-- 数据线 -->
+                    <polyline fill="none" stroke="#667eea" stroke-width="3" 
+                              points="50,150 100,120 150,80 200,130 250,100 300,60 350,90"/>
+                    
+                    <!-- 数据点 -->
+                    <circle cx="50" cy="150" r="4" fill="#667eea"/>
+                    <circle cx="100" cy="120" r="4" fill="#667eea"/>
+                    <circle cx="150" cy="80" r="4" fill="#667eea"/>
+                    <circle cx="200" cy="130" r="4" fill="#667eea"/>
+                    <circle cx="250" cy="100" r="4" fill="#667eea"/>
+                    <circle cx="300" cy="60" r="4" fill="#667eea"/>
+                    <circle cx="350" cy="90" r="4" fill="#667eea"/>
+                    
+                    <!-- 轴标签 -->
+                    <text x="20" y="160" font-size="12" fill="#666">0</text>
+                    <text x="20" y="110" font-size="12" fill="#666">50</text>
+                    <text x="20" y="60" font-size="12" fill="#666">100</text>
+                </svg>
+                <p style="text-align: center; color: #666; margin-top: 1rem;">月度数据趋势图</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 调用行动 -->
+<div class="cta" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 3rem; border-radius: 12px; text-align: center; margin: 3rem 0;">
+    <h2 style="margin: 0 0 1rem 0; color: white;">🚀 开始使用 HTML 增强你的 Hugo 文章</h2>
+    <p style="opacity: 0.9; max-width: 600px; margin: 0 auto 2rem;">创建更丰富、更交互的内容体验</p>
+    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <a href="#" style="background: white; color: #667eea; padding: 0.75rem 2rem; border-radius: 6px; text-decoration: none; font-weight: bold; transition: transform 0.2s;">立即尝试</a>
+        <a href="#" style="background: rgba(255,255,255,0.2); color: white; padding: 0.75rem 2rem; border-radius: 6px; text-decoration: none; border: 2px solid white; font-weight: bold; transition: transform 0.2s;">查看文档</a>
+    </div>
+</div>
+
+</article>
+
+<!-- 页脚信息 -->
+<footer class="article-footer" style="border-top: 1px solid #e0e0e0; padding-top: 2rem; margin-top: 3rem;">
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+        <div>
+            <strong>📁 文章信息</strong>
+            <p style="color: #666; margin: 0.5rem 0 0 0; font-size: 0.9em;">
+                最后更新: {{ now.Format "2006-01-02 15:04" }}<br>
+                字数统计: {{ .WordCount }} 字<br>
+                阅读时间: {{ .ReadingTime }} 分钟
+            </p>
+        </div>
+        <div style="text-align: right;">
+            <div style="display: flex; gap: 0.5rem;">
+                <span style="background: #f0f0f0; padding: 4px 12px; border-radius: 20px; font-size: 0.85em;">#Hugo</span>
+                <span style="background: #f0f0f0; padding: 4px 12px; border-radius: 20px; font-size: 0.85em;">#HTML</span>
+                <span style="background: #f0f0f0; padding: 4px 12px; border-radius: 20px; font-size: 0.85em;">#Web开发</span>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- 内联脚本 -->
+<script>
+function showAlert() {
+    alert('这是一个交互演示！HTML 在 Hugo 中完全可用。');
+}
+
+function switchTab(index) {
+    // 移除所有标签的 active 类
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('active');
+        btn.style.borderBottom = 'none';
+        btn.style.color = '#666';
+    });
+    
+    document.querySelectorAll('.tab-content').forEach(content => {
+        content.classList.remove('active');
+        content.style.display = 'none';
+    });
+    
+    // 激活选中的标签
+    document.querySelectorAll('.tab-btn')[index].classList.add('active');
+    document.querySelectorAll('.tab-btn')[index].style.borderBottom = '3px solid #667eea';
+    document.querySelectorAll('.tab-btn')[index].style.color = '#667eea';
+    
+    document.querySelectorAll('.tab-content')[index].classList.add('active');
+    document.querySelectorAll('.tab-content')[index].style.display = 'block';
+}
+
+// 卡片悬停效果
+document.addEventListener('DOMContentLoaded', function() {
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-4px)';
+        });
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+        });
+    });
+});
+</script>
+
+<!-- 内联样式补充 -->
+<style>
+.tab-btn.active {
+    border-bottom: 3px solid #667eea !important;
+    color: #667eea !important;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.card {
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .multimedia > div {
+        grid-template-columns: 1fr;
+    }
+}
+</style>

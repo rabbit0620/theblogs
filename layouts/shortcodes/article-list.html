@@ -1,0 +1,11 @@
+<ul>
+  {{/* 1. 先列出当前目录下的所有子文件夹 (Sections) */}}
+  {{ range .Page.Sections }}
+    <li>📂 <strong><a href="{{ .RelPermalink }}">{{ .Title }}</a></strong></li>
+  {{ end }}
+
+  {{/* 2. 再列出当前目录下的所有普通文章 (RegularPages) */}}
+  {{ range .Page.RegularPages }}
+    <li>📄 <a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+  {{ end }}
+</ul>

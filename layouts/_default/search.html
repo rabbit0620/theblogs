@@ -1,0 +1,10 @@
+{{ define "main" }}
+<div class="search-page">
+  <h1>{{ .Title }}</h1>
+  <div class="search-form">
+    <input type="text" id="search-input" placeholder="输入关键词…" autocomplete="off">
+    <button id="search-button">搜索</button>
+  </div>
+  <div id="search-results"></div>
+</div>
+{{ end }}

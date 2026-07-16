@@ -1,0 +1,443 @@
+/* ========== 全局字体与基础（完全匹配原博客） ========== */
+body {
+  margin: 0;
+  font-size: small;                     /* 原博客的字号基准 */
+  background-color: #F0F0F0;
+  color: #000000;
+  font-family: 'Trebuchet MS', Verdana, sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: #0066FF;
+}
+a:hover {
+  text-decoration: underline;
+  color: #88BBFF;
+}
+a:visited {
+  color: #800080;
+}
+a img { border: 0; }
+
+/* ========== Flex 容器（保证左右不垮） ========== */
+#content-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 5px;
+  box-sizing: border-box;
+}
+
+/* ========== 页头 ========== */
+#header {
+  flex: 1 0 100%;
+}
+h1.title a,
+h1.title a:link,
+h1.title a:visited {
+  text-decoration: none;
+  color: #000000;
+}
+h1 {
+  font-size: 240%;
+  line-height: 125%;
+  text-align: center;
+  margin: 0.67em 0;
+}
+.descriptionwrapper {
+  margin-left: 30px;
+}
+.description {
+  text-align: left;
+  padding-top: 10px;
+  padding-left: 0px;
+}
+
+/* ========== 主内容区（左栏） ========== */
+#main {
+  flex: 0 0 67%;
+  max-width: 67%;
+  min-width: 0;                         /* 防止内容撑破布局 */
+  padding: 0 20px 20px;
+  box-sizing: border-box;
+  word-wrap: break-word;
+  overflow-x: auto;
+  /* 字体沿用 body，原博客这里用 100% 即继承 small */
+  font: normal normal 100% 'Trebuchet MS', Verdana, sans-serif;
+}
+
+/* 文章通用 */
+.blog-posts {
+  margin-left: 30px;
+}
+.post {
+  padding-left: 0px;
+  margin-bottom: 20px;
+  text-indent: 0px;
+  padding-right: 20px;
+}
+.post-toolbar {
+  margin-bottom: 30px;
+}
+.post-toolbar-1,
+.post-toolbar-2 {
+  margin: 0px;
+}
+.post-toolbar-1 .post-config-buttons {
+  float: right;
+}
+.post-toolbar-2 .post-timestamp {
+  color: #808080;
+}
+.post-timestamp,
+.post-comment-link,
+.post-labels {
+  margin-right: 12px;
+}
+.post-inner-index {
+  padding: 1em 2em;
+}
+.post-copyright {
+  margin: 1em 2em;
+  padding: 5px;
+  border: 1px solid black;
+}
+.post-footer {
+  margin-bottom: 15px;
+  margin-left: 0px;
+  font-size: 100%;
+}
+
+/* 文章标题 */
+h1.post-title,
+h1.entry-title {
+  font-size: 160%;
+  font-weight: bold;
+  text-align: left;
+}
+
+/* 文章内标题 */
+.post-body h2 {
+  font-size: 140%;
+  font-weight: bold;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding: 0px 0px 0px 24px;
+}
+.post-body h3 {
+  font-size: 120%;
+  font-weight: bold;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding: 0px 0px 0px 24px;
+}
+.post-body h4 {
+  font-size: 110%;
+  font-weight: bold;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding: 0px 0px 0px 24px;
+}
+
+/* 引用块、代码块 */
+.post-body blockquote,
+.post-body q,
+.post-body pre,
+.post-body code {
+  background-color: #DDD;
+}
+.post-body blockquote {
+  margin: 1em 2em;
+  border: 0px none;
+}
+.post-body pre,
+.post-body code {
+  font-family: "DejaVu Sans Mono", Monaco, Menlo, Consolas, "Lucida Console", Courier, monospace;
+}
+.post-body pre {
+  overflow-x: auto;
+  padding: 0.5em 1em;
+  border: 0px none;
+}
+.post-body pre.shell {
+  background-color: black;
+  color: lawnGreen;
+  border: 4px ridge gray;
+  padding: 1em;
+  overflow-y: scroll;
+}
+
+/* 外链图标（原博客的小箭头） */
+.post-body a[target="_blank"] {
+  background: transparent url(https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgW4JKX2I-KSXSt08eXwi_JtwN4Q6sb7XuMdWjI1BmXLzu2jH2QAjxD7OYTcLxpA96dKwWBhanGiGbnGVnBKLFjBAKCFtsrB-ctAmGFLOPhgk677HEZ7oivNPRHTnQ1kUr8mYmfUIEiRLM/) no-repeat scroll right center;
+  padding-right: 13px;
+}
+
+/* ========== 侧边栏（右栏） ========== */
+#sidebar {
+  flex: 0 0 30%;
+  max-width: 30%;
+  flex-shrink: 0;
+  padding: 10px 10px 10px 20px;
+  box-sizing: border-box;
+  background-color: #FFFFFF;
+  border-left: 2px dashed #000000;
+  word-wrap: break-word;
+  overflow: hidden;
+  font: normal normal 100% 'Trebuchet MS', Verdana, sans-serif;
+}
+#sidebar h2 {
+  font-weight: bold;
+  font-size: 120%;
+  color: #000000;
+}
+#sidebar .widget {
+  padding-top: 4px;
+  padding-right: 8px;
+  padding-bottom: 0;
+  padding-left: 0;
+  margin-bottom: 20px;
+}
+#sidebar ul {
+  padding-left: 1.2em;
+  margin-top: 0.5em;
+}
+#sidebar a {
+  color: #0066FF;
+}
+#sidebar a:visited {
+  color: #800080;
+}
+#sidebar a:hover {
+  color: #88BBFF;
+}
+
+/* ========== 底部 ========== */
+#footer {
+  flex: 1 0 100%;
+  border-top: 1px solid #000000;
+  text-align: center;
+  padding: 10px 0;
+  margin-top: 20px;
+}
+.footer-content {
+  margin: 0;
+}
+
+/* ========== 分页 ========== */
+#blog-pager {
+  text-align: center;
+  font-size: 125%;
+  font-weight: bold;
+}
+#blog-pager-newer-link {
+  float: left;
+  margin-left: 20px;
+}
+#blog-pager-older-link {
+  float: right;
+}
+
+/* ========== 侧栏切换按钮 ========== */
+#toggle-sidebar {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 100;
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+.hidden {
+  display: none !important;
+}
+
+/* ========== 响应式 ========== */
+@media screen and (max-width: 768px) {
+  #content-wrapper {
+    flex-wrap: wrap;
+  }
+  #main,
+  #sidebar {
+    flex: 0 0 100%;
+    max-width: 100%;
+    border-left: none;
+    padding: 10px;
+  }
+  #sidebar {
+    background-color: #F0F0F0;
+    margin-top: 20px;
+  }
+  h1 { font-size: 180%; }
+  h1.post-title { font-size: 140%; }
+}
+img { max-width: 100%; height: auto; }
+
+/* 表格样式 */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1em 0;
+}
+th, td {
+  border: 1px solid #999;
+  padding: 8px 10px;
+  text-align: left;
+}
+th {
+  background-color: #e0e0e0;
+  font-weight: bold;
+}
+/* 对齐控制：通过 HTML 属性或内联样式支持，但 Goldmark 会生成 style，这里保持基础 */
+
+/* 搜索组件 */
+#search-widget {
+  margin-bottom: 1.5em;
+}
+#search-input {
+  width: 100%;
+  padding: 6px 8px;
+  font-size: 90%;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-sizing: border-box;
+}
+#search-results {
+  margin-top: 8px;
+  max-height: 300px;
+  overflow-y: auto;
+  font-size: 90%;
+}
+.search-result-item {
+  border-bottom: 1px solid #eee;
+  padding: 6px 0;
+}
+.search-result-item a {
+  font-weight: bold;
+  display: block;
+}
+.search-result-date {
+  color: #808080;
+  font-size: 85%;
+}
+.search-result-snippet {
+  color: #555;
+  font-size: 85%;
+  margin-top: 2px;
+}
+.search-result-snippet mark {
+  background-color: #ffe58f;
+  padding: 0 2px;
+}
+.no-results {
+  color: #999;
+  font-style: italic;
+  text-align: center;
+}
+
+/* 搜索页面 */
+.search-page {
+  max-width: 100%;
+}
+.search-page .search-form {
+  margin: 1em 0 2em;
+  display: flex;
+}
+.search-page .search-form input {
+  flex: 1;
+  padding: 8px;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 4px 0 0 4px;
+}
+.search-page .search-form button {
+  padding: 8px 16px;
+  background: #0066FF;
+  color: #fff;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+}
+.search-page #search-results {
+  font-size: 95%;
+}
+
+/* 修复 footer 可能被固定定位的问题 */
+#footer {
+  position: static !important;   /* 强制取消固定/绝对定位 */
+  bottom: auto !important;
+  flex-shrink: 0;
+}
+
+/* 确保页面可以正常滚动 */
+html, body {
+  height: auto !important;
+  overflow-y: visible !important;
+  overflow-x: hidden;
+}
+
+/* 终极修复 footer 被固定遮挡 */
+#footer {
+  position: static !important;
+  bottom: auto !important;
+  flex-shrink: 0;
+  margin-top: 2em;
+}
+html, body {
+  height: auto !important;
+  overflow-y: visible !important;
+  overflow-x: hidden;
+  position: static !important;
+}
+
+/* ========== 彻底修复 footer 布局 ========== */
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 让主容器占满剩余空间 */
+#content-wrapper {
+  flex: 1 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 5px;
+  box-sizing: border-box;
+}
+
+/* 确保 header 和 footer 不伸缩 */
+#header, #footer {
+  flex-shrink: 0;
+}
+
+/* 主内容区自动伸展 */
+#main {
+  flex: 1 0 auto;
+  min-height: 200px;
+}
+
+/* 修复 footer 没有上边距的问题 */
+#footer {
+  margin-top: 30px;
+  padding: 15px 0;
+}
+
+/* 移除可能冲突的旧样式 */
+#footer {
+  position: static !important;
+  bottom: auto !important;
+}
+
+/* 搜索页面：让结果自然延伸，不设限高 */
+.search-page #search-results {
+  max-height: none;
+  overflow-y: visible;
+}

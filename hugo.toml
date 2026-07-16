@@ -1,12 +1,35 @@
 baseURL = "https://sincerelylovefortech.xyz"
-languageCode = "zh-cn"
+locale = "zh-cn"
 title = "SLFT"
-theme = "hugo-theme-stack"
+
 
 [outputs]
-  home = ["HTML", "RSS"]
+home = ["HTML", "RSS", "JSON"] # 首页输出 JSON 索引
+page = ["HTML"]                # 普通文章仍然只输出 HTML（不变）
+section = ["HTML"]             # 版块不变
+taxonomy = ["HTML"]            # 分类/标签不变
+term = ["HTML"]
+
 
 [security]
-  # 允许 html 内容
-  allowContent = ['^text/html$','^text/markdown$']
-  enableInlineShortcodes = true # 通常为了使用 shortcode，建议开启
+# 允许 html 内容
+allowContent = ['^text/html$', '^text/markdown$']
+enableInlineShortcodes = true                     # 通常为了使用 shortcode，建议开启
+
+
+[markup]
+[markup.goldmark]
+[markup.goldmark.extensions]
+definitionList = true
+footnote = true
+linkify = true
+strikethrough = true
+table = true
+taskList = true
+typographer = true
+[markup.goldmark.parser]
+attribute = true
+autoHeadingID = true
+[markup.goldmark.renderer]
+unsafe = true
+summaryLength = 30

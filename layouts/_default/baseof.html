@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ if .Title }}{{ .Title }} @ {{ .Site.Title }}{{ else }}{{ .Site.Title }}{{ end }}</title>
+  <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true
+      }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+  <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2/dist/fuse.min.js"></script>
+</head>
+<body>
+  <button id="toggle-sidebar">☰ 侧栏</button>
+  <div id="content-wrapper">
+    <div id="header">
+      <h1 class="title"><a href="/">{{ .Site.Title }}</a></h1>
+      <div class="descriptionwrapper">
+        <p class="description">{{ .Site.Params.description }}</p>
+      </div>
+    </div>
+    <div id="main">
+      {{ block "main" . }}{{ end }}
+    </div>
+    <div id="sidebar">
+      <!-- 搜索框，跳转到 /search/ 页面 -->
+      <div id="search-widget" class="sidebar widget">
+        <form action="/search/" method="get">
+          <input type="text" name="q" placeholder="搜索文章…" autocomplete="off">
+        </form>
+      </div>
+      {{ partial "sidebar.html" . }}
+    </div>
+    <div id="footer">
+      <p class="footer-content">© {{ now.Format "2006" }} {{ .Site.Title }}</p>
+    </div>
+  </div>
+  <script>
+    document.getElementById('toggle-sidebar').addEventListener('click', function() {
+      document.getElementById('sidebar').classList.toggle('hidden');
+    });
+  </script>
+  <script src="{{ "js/search.js" | relURL }}"></script>
+</body>
+</html>

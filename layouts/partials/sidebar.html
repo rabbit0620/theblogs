@@ -1,0 +1,22 @@
+<div class="sidebar widget">
+  <h2>关于</h2>
+  <p>这是我的博客简介。</p>
+</div>
+<div class="sidebar widget">
+  <h2>分类</h2>
+  <ul>
+    {{ range $name, $taxonomy := .Site.Taxonomies.categories }}
+      {{ $termPage := $.Site.GetPage (printf "/categories/%s" $name) }}
+      <li><a href="{{ $termPage.RelPermalink }}">{{ $name }} ({{ $taxonomy.Count }})</a></li>
+    {{ end }}
+  </ul>
+</div>
+<div class="sidebar widget">
+  <h2>标签</h2>
+  <ul>
+    {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
+      {{ $termPage := $.Site.GetPage (printf "/tags/%s" $name) }}
+      <li><a href="{{ $termPage.RelPermalink }}">{{ $name }} ({{ $taxonomy.Count }})</a></li>
+    {{ end }}
+  </ul>
+</div>
